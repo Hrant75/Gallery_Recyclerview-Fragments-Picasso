@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -71,6 +73,8 @@ public class FolderViewHolder extends RecyclerView.ViewHolder
                         .load(new File(folder.getPath()))
                         .resize(150, 150)
                         .centerInside()
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                        .networkPolicy(NetworkPolicy.NO_CACHE)
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.errorstop)
                         .into(target);
