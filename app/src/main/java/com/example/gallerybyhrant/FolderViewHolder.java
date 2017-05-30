@@ -69,6 +69,8 @@ public class FolderViewHolder extends RecyclerView.ViewHolder
                 Picasso.with(rootV.getContext())
 //                    .load(folder.getPath())
                         .load(new File(folder.getPath()))
+                        .resize(150, 150)
+                        .centerInside()
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.errorstop)
                         .into(target);
